@@ -1,32 +1,34 @@
-// @ts-ignore
 import lex from 'pug-lexer';
 import {bem} from './bem';
+import {parseArgs} from './parse';
 
 const principalExtractor = (content: string): string[] => {
   const tokens = lex(content);
-  let selectors: string[] = [];
+  let selectors: Set<string> = new Set();
   for (const token of tokens) {
     switch (token.type) {
       case 'call':
-        selectors = selectors.concat(bem(token));
+      case 'mixin':
+        bem(token).forEach(result => selectors.add(result));
         break;
       case 'tag':
       case 'id':
       case 'class':
-        selectors.push(token.val);
+        selectors.add(token.val);
         break;
       case 'attribute':
         if (token.name === 'class' || token.name === 'id') {
-          selectors.push(
-            token.mustEscape ? token.val.replace(/"/g, '') : token.val,
-          );
+          const valueParsed = parseArgs(token.val).flat();
+          if (Array.isArray(valueParsed)) {
+            valueParsed.forEach(v => selectors.add(v));
+          }
         }
         break;
       default:
         break;
     }
   }
-  return selectors;
+  return [...selectors];
 };
 
 export default principalExtractor;

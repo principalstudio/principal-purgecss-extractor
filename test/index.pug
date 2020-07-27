@@ -1,0 +1,19 @@
+- const isHome = 'constValue';
+
++b('header', 'header', ['home', isHome ? 'test' : 'test2'])
+  +e('header', 'title', isHome ? 'h1' : 'p', ['big'])
+    | Principal
+  +b('pill')
+
++b('main', 'main').hello-world#gold
+  +b('grid', 'div', ['map'])(class=["class-attr-array"])
+    +e('grid', 'area', 'div', ['map'], {'grid-big': 'test'})
+
++b('footer', 'footer')
+  +e('footer', 'menu', 'nav', [], {})
+    +b('list', 'ul', 'footer')(class="class-attr")
+      each index in [0,1,2,3]
+        +e('list', 'item', 'li')=index
+  +e('footer', 'copyrights', 'div')
+    | Principal
+
