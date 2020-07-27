@@ -1,5 +1,5 @@
 {
-  "name": "principal-purgecss-extractor",
+  "name": "@principalstudio/principal-purgecss-extractor",
   "version": "1.0.0",
   "description": "Principal files extractor for PurgeCSS",
   "main": "lib/main.js",
@@ -16,10 +16,10 @@
     "url": "git+https://github.com/principalstudio/principal-purgecss-extractor.git"
   },
   "keywords": [
-    "purgecss"
+    "purgecss",
+    "extractor"
   ],
   "author": "Principal Studio",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/principalstudio/principal-purgecss-extractor/issues"
   },
