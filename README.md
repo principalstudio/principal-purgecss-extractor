@@ -2,6 +2,8 @@
 
 Improve version of [purgecss-from-pug](https://github.com/FullHuman/purgecss/tree/master/packages/purgecss-from-pug) with fix and support for BEM mixins.
 
+**Currently, only support pug files**
+
 ## Installation
 
 ```bash

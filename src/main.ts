@@ -3,15 +3,23 @@ import {bem} from './bem';
 import {parseArgs} from './parse';
 
 const principalExtractor = (content: string): string[] => {
-  const tokens = lex(content);
-  let selectors: Set<string> = new Set();
+  let tokens;
+  try {
+    tokens = lex(content);
+  } catch (error) {
+    console.error('Maybe you pass a file is not in pug\n', error);
+    return [];
+  }
+
+  const selectors: Set<string> = new Set();
+
   for (const token of tokens) {
     switch (token.type) {
       case 'call':
       case 'mixin':
         bem(token).forEach(result => selectors.add(result));
         break;
-      case 'tag':
+      // case 'tag':
       case 'id':
       case 'class':
         selectors.add(token.val);
@@ -28,6 +36,7 @@ const principalExtractor = (content: string): string[] => {
         break;
     }
   }
+
   return [...selectors];
 };
 

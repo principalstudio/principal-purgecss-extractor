@@ -1,6 +1,7 @@
-import principalExtractor from './../src/main';
 import fs from 'fs';
 import path from 'path';
+
+import principalExtractor from './../src/main';
 
 const expected = [
   'header',
@@ -39,5 +40,11 @@ describe('principalPurgeCSSExtractor', () => {
     const data = fs.readFileSync(path.resolve(__dirname, 'index.pug'));
     const extract = principalExtractor(data.toString());
     expect(extract).toStrictEqual(expected);
+  });
+
+  it('throw error gracefully', async () => {
+    const data = fs.readFileSync(path.resolve(__dirname, 'error.pug'));
+    const extract = principalExtractor(data.toString());
+    expect(extract).toStrictEqual([]);
   });
 });
