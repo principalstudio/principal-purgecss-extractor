@@ -14,6 +14,7 @@ const expected = [
   'header__title--big',
   'div',
   'pill',
+  'span',
   'main',
   'hello-world',
   'gold',

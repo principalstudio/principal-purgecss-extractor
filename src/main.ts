@@ -19,7 +19,7 @@ const principalExtractor = (content: string): string[] => {
       case 'mixin':
         bem(token).forEach(result => selectors.add(result));
         break;
-      // case 'tag':
+      case 'tag':
       case 'id':
       case 'class':
         selectors.add(token.val);
