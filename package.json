@@ -1,6 +1,6 @@
 {
   "name": "@principalstudio/principal-purgecss-extractor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Principal files extractor for PurgeCSS",
   "main": "lib/main.js",
   "scripts": {
