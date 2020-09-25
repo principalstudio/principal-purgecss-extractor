@@ -40,4 +40,4 @@ const principalExtractor = (content: string): string[] => {
   return [...selectors];
 };
 
-export default principalExtractor;
+export = principalExtractor;

@@ -18,7 +18,7 @@ See [https://purgecss.com/extractors.html](https://purgecss.com/extractors.html)
 For example with PostCSS
 
 ```js
-const principalExtractor = require('principal-purgecss-extractor').default;
+const principalExtractor = require('principal-purgecss-extractor');
 const purgecss = require('@fullhuman/postcss-purgecss')
 
 module.exports = {
