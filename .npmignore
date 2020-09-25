@@ -1,0 +1,9 @@
+src/
+test/
+typings/
+.vscode/
+tsconfig.json
+.prettierignore
+.prettierrc.json
+.eslintignore
+.eslintrc.json
