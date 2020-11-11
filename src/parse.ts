@@ -11,13 +11,17 @@ interface nodeExtended extends acorn.Node {
   alternate?: nodeExtended;
 }
 
+const acornOptions: acorn.Options = {
+  ecmaVersion: 'latest',
+};
+
 export const parseArgs = (str: string) => {
   let args = [];
-  const strParsed = parse('[' + str + ']') as nodeExtended;
+  const strParsed = parse('[' + str + ']', acornOptions) as nodeExtended;
 
   if (strParsed.body.length === 1 && strParsed.body[0].expression) {
     const data = recursiveParse(strParsed.body[0].expression);
-    args = isArray(data) ? data : [];
+    args = Array.isArray(data) ? data : [];
   }
 
   return args;
