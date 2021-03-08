@@ -25,7 +25,10 @@ const principalExtractor = (content: string): string[] => {
         selectors.add(token.val);
         break;
       case 'attribute':
-        if (token.name === 'class' || token.name === 'id') {
+        if (
+          (token.name === 'class' || token.name === 'id') &&
+          typeof token.val !== 'boolean'
+        ) {
           const valueParsed = parseArgs(token.val).flat();
           if (Array.isArray(valueParsed)) {
             valueParsed.forEach(v => selectors.add(v));
