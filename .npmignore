@@ -1,6 +1,5 @@
 src/
 test/
-typings/
 .vscode/
 tsconfig.json
 .prettierignore
